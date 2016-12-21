@@ -5,15 +5,15 @@
 typedef struct TreeNode{
 
 	int value, height, balanceFactor;
-	Node* leftChild;
-	Node* rightChild;
+	struct TreeNode* leftChild;
+	struct TreeNode* rightChild;
 
 }Node;
 
 typedef struct Tree{
 
 	int elements, rebalanceThreshold, isBalanced;
-	Node root;
+	Node* root;
 	Node* node_list;
 
 }Tree;
@@ -29,6 +29,7 @@ int get_balance (Node* node);
 int set_balance (Node* node);
 
 //methods for Tree operations
+int initialize_tree();
 int add		 (Node* node);
 int remove	 (Node* node);
 int contains_node(Tree* tree);
