@@ -17,13 +17,13 @@ typedef struct Queue_Item{
 typedef struct Queue{
 
 	int size;
-	Queue_Item* front;
-	Queue_Item* rear;
+	Queue_Item* head;
+	Queue_Item* tail;
 	
 }Queue;
 
-int 	add(Queue* queue, void* data);
-int 	remove(Queue* queue);
+int 	enqueue(Queue* queue, void* data);
+void* 	dequeue(Queue* queue);
 void* 	peek(Queue* queue);
 int 	size(Queue* queue);
 int 	initialize(Queue* queue);
