@@ -15,7 +15,7 @@ int initialize(Stack* stack){
 		return -1;
 	}
 	
-	printf("Stack initialize...\n");
+	printf("Stack initialized...\n");
 	stack -> head = NULL;
 	stack -> num_items = 0;
 
@@ -40,38 +40,47 @@ int size(Stack* stack){
 * order as a linked list with the head as the top
 * of the stack
 
-@param stack - stack to push onto
-@param item  - item to push onto top of the stack
+*@param stack - stack to push onto
+*@param item  - item to push onto top of the stack
+*@return -1 on failure, 0 on success
 */
-void push(Stack* stack, void* data){
+int push(Stack* stack, void* data){
 
-	if(stack -> numItems == 0){
-		printf("Empty Stack...\nAdding first element\n");
-		stack -> head = item;
-		stack -> num_items++;
-		return;
+	if(NULL == stack){
+		printf("Can't push to unitialized stack...\n");
+		return -1;
 	}
-	/*
-	printf("Pushing onto stack...\n");
+	
+	Stack_Item* item = malloc(sizeof(Stack_Item));
+	item -> data = data;
 	item -> next = stack -> head;
+
 	stack -> head = item;
-	stack -> num_items++;
-	*/
-	printf("Total items in stack: %d\n, stack -> num_items);
+	stack -> num_items++;	
+
+	return 0;
 
 	//TODO: work on refactoring size of stack when too many items
 
 }
 
+/**
+* Method to pop the data item from the top of the stack
+*@param stack - stack with head node to be popped
+*@return the data of the popped item
+*/
+void* pop(Stack* stack){
 
-Stack_Item* pop(Stack* stack){
-
-	if(NULL == stack || stack -> num_items == 0){
+	if(NULL == stack || NULL == stack -> head){
 		printf("Cannot remove item from an empty stack...\n");
 		return NULL;
 	}	
+	
+	void* data = stack -> head -> data;
+	Stack_Item* item = stack -> head -> next;
+	free(stack -> head);
+	stack -> head = item;
 
-	Stack_Item* item stack -> head;
-	//make sure to free item
+	return data;
 	
 }
