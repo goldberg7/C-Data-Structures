@@ -12,9 +12,10 @@ typedef struct Stack{
 	Stack_Item* head;
 } Stack;
 
-void 		push(Stack* stack, void* data);
-Stack_Item* 	pop(Stack* stack);
+int 		push(Stack* stack, void* data);
+void*	 	pop(Stack* stack);
 int 		initialize(Stack* stack);
 int 		size(Stack* stack);
+void* 		peek(Stack* stack);
 
 #endif
