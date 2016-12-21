@@ -80,7 +80,7 @@ void* pop(Stack* stack){
 	Stack_Item* item = stack -> head -> next;
 	free(stack -> head);
 	stack -> head = item;
-
+	stack -> num_items--;
 	return data;
 	
 }
