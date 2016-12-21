@@ -84,3 +84,18 @@ void* pop(Stack* stack){
 	return data;
 	
 }
+
+/**
+* Method to get the item at the top of the stack without removing it
+*@param stack - stack with head node to be peeked
+*@return data of item at top of the stack 
+*/
+void* peek(Stack* stack){
+	if(NULL == stack || NULL == stack -> head){
+		printf("No elements in the stack to peek...\n);
+		return NULL;
+	}
+
+	return stack -> head -> data;
+
+}
