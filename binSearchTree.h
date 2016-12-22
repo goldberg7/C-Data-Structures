@@ -26,7 +26,7 @@ int set_balance (Node* node);
 int initialize_tree(Tree* tree);
 Node* add	 (Node* node, int data); 	 
 void remove_value (Tree* tree, int data);
-int contains	 (Tree* tree, int data);
+int contains	 (Node* node, int data);
 void print_tree  (Node* node);
 
 /*
