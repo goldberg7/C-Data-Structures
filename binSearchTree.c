@@ -25,8 +25,14 @@ Node* add(Node* node, int data){
 		
 		node -> leftChild = NULL;
 		node -> rightChild = NULL;
-		
+	
+		printf("Successfully added %d as root...\n", data);	
 		return node;
+	}
+
+	if(data == node -> data){
+		printf("Element is already stored in BST...\n");
+		return NULL;
 	}
 
 	if(data > node -> data){
@@ -35,13 +41,30 @@ Node* add(Node* node, int data){
 	else{
 		node -> leftChild = add(node -> leftChild, data);
 	}
-	
+		
 	return node;
 }
 
-int contains(Tree* tree, int data){
-	return 0;
+//pass in the root as node
+//0 upon failure, 1 on success
+int contains(Node* node, int data){
+
+	if(NULL == node)
+		return 0;
+
+	if(node -> data == data)
+		return 1;
+	
+	if(data > node -> data){
+		return contains(node -> rightChild, data);
+	}
+	else{
+		return contains(node -> leftChild, data);
+	}
+
 }
+
+
 //in-order recursive tree traversal
 void print_tree(Node* root){
 	
