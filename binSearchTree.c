@@ -10,32 +10,12 @@ int initialize_tree(Tree* tree){
 	}
 	
 	tree -> root = NULL;
-	tree -> size = 0;
 
 	printf("Tree initialized...\n");
 	return 0;
 }
 
-int add(Tree* tree, int data){
-
-	if(NULL == tree){
-		printf("Cannot add to uninitialized tree...\n");
-		return -1;
-	}
-
-	if(contains(tree, data){
-		printf("Cannot have duplicate keys in BST...\n");
-		return -2;
-	}
-
-	tree -> root = add_helper(tree -> root, data);
-	tree -> size++;
-	
-	return 0;
-
-}
-
-Node* add_helper(Node* node, int data){
+Node* add(Node* node, int data){
 
 	//empty tree if root is null
 	if(NULL == node){
@@ -45,20 +25,33 @@ Node* add_helper(Node* node, int data){
 		
 		node -> leftChild = NULL;
 		node -> rightChild = NULL;
-
+		
 		return node;
 	}
 
-	//Add data to right half of BST
 	if(data > node -> data){
-		node -> rightChild = add_helper(node, data);
-		return node;
+		node -> rightChild = add(node -> rightChild, data);
 	}
 	else{
-		node -> leftChild = add_helper(node, data);
-		return node;
+		node -> leftChild = add(node -> leftChild, data);
 	}
-
+	
+	return node;
 }
 
+int contains(Tree* tree, int data){
+	return 0;
+}
+//in-order recursive tree traversal
+void print_tree(Node* root){
+	
+	if(NULL == root){
+		return;
+	}
+	
+	print_tree(root -> leftChild);
+	printf("%d ", root -> data);
+	print_tree(root -> rightChild);
 
+//	printf("\n");
+}
