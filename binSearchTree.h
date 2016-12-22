@@ -12,7 +12,6 @@ typedef struct TreeNode{
 
 typedef struct Tree{
 
-	int size;
 	Node* root;
 
 }Tree;
@@ -25,10 +24,11 @@ int set_balance (Node* node);
 */
 //methods for Tree operations
 int initialize_tree(Tree* tree);
-int add		 (Tree* tree, int data);
-Node* add_helper (Node* node, int data); 	 
-void* remove	 (Tree* tree, int data);
+Node* add	 (Node* node, int data); 	 
+void remove_value (Tree* tree, int data);
 int contains	 (Tree* tree, int data);
+void print_tree  (Node* node);
+
 /*
 Node* subset	 (int low, int high);
 int rebalance    (Tree* tree);
