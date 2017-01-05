@@ -26,7 +26,6 @@ Node* add(Node* node, int data){
 		node -> leftChild = NULL;
 		node -> rightChild = NULL;
 	
-		printf("Successfully added %d as root...\n", data);	
 		return node;
 	}
 
@@ -44,6 +43,23 @@ Node* add(Node* node, int data){
 		
 	return node;
 }
+
+
+void remove_value(Tree* tree, int data){
+	
+	if(NULL == tree){
+		printf("Cannot remove from uninitialized tree...\n");
+		return;
+	}
+	if(!contains(tree -> root, data)){
+		printf("Value is not in the tree...\n");
+		return;
+	}
+
+	//TODO
+
+}
+
 
 //pass in the root as node
 //0 upon failure, 1 on success
